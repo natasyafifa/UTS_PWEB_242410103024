@@ -6,9 +6,9 @@ body {
   transition: background 0.6s ease, color 0.4s ease;
 }
 
-/* Warna dinamis per album (bisa diubah via class body) */
-.body .album-1 { --page-bg: #ffe5ec; --accent: #ff5c8d; }
-.body .album-2 { --page-bg: #e0f7fa; --accent: #00bcd4; }
+/* Warna dinamis per album */
+body.album-1 { --page-bg: #ffe5ec; --accent: #ff5c8d; }
+body.album-2 { --page-bg: #e0f7fa; --accent: #00bcd4; }
 body.album-3 { --page-bg: #f3e5f5; --accent: #ab47bc; }
 body.album-4 { --page-bg: #fff3e0; --accent: #fb8c00; }
 body.album-5 { --page-bg: #e8f5e9; --accent: #43a047; }
@@ -53,7 +53,7 @@ body.album-5 { --page-bg: #e8f5e9; --accent: #43a047; }
 .btn-primary {
   background: var(--accent);
   border: none;
-  color: rgb(0, 0, 0);
+  color: #fff; /* agar kontras */
 }
 
 .btn-primary:hover {
@@ -68,7 +68,7 @@ body.album-5 { --page-bg: #e8f5e9; --accent: #43a047; }
 
 .btn-outline-primary:hover {
   background: var(--accent);
-  color: #4673d4;
+  color: #fff; /* agar kontras */
   transform: translateY(-3px);
 }
 
