@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    // contoh data artis + albums + tracks berada di controller
+
     private function artistData()
     {
         return [
@@ -21,7 +21,6 @@ class PageController extends Controller
                 ['id' => 1, 'title' => 'Buzz', 'year' => 2024, 'cover'=> 'https://i.pinimg.com/736x/c2/fd/27/c2fd27bb35d501dcc82dc01853d00728.jpg'],
                 ['id' => 2, 'title' => 'Nicole', 'year' => 2022, 'cover'=> 'https://i.pinimg.com/1200x/f0/dd/3f/f0dd3f02cc12b0aef4df014190cae09d.jpg'],
                 ['id' => 3, 'title' => 'Moonchild', 'year' => 2020, 'cover'=> 'https://i.pinimg.com/1200x/4c/f8/f0/4cf8f0ae833d2fb2a6fcee697412e952.jpg'],
-                ['id' => 4, 'title' => 'Zephyr', 'year' => 2018, 'cover'=> 'https://i.pinimg.com/1200x/72/9d/ba/729dba3f606142c544db4c746123680d.jpg'],
 
             ],
             'albums' => [
@@ -47,7 +46,7 @@ class PageController extends Controller
                     ],
                     'links' => [
                         'merch' => 'https://shopau.niki.store/',
-                        'spotify' => 'https://open.spotify.com/album/3g73KFee4dbxDq5vTmX92S?si=njnv_fwpSFeyUDWe5ulXZQ',
+                        'spotify' => 'https://open.spotify.com/embed/album/3g73KFee4dbxDq5vTmX92S?utm_source=generator',
                         'youtube' => 'https://youtube.com/playlist?list=OLAK5uy_n7se7Oe7Kk5MhxBn74jWTg4jNFOfsFKos&si=GnilBRT72boV8i99',
                     ],
                 ],
@@ -72,7 +71,7 @@ class PageController extends Controller
                     ],
                     'links' => [
                         'merch' => 'https://shop.example.com/dawn-echoes-vinyl',
-                        'spotify' => 'https://open.spotify.com/album/0TMmGHybMKtsjBBEmwXHkF?si=j_6WY89TR6ieuXWnKeM3fg',
+                        'spotify' => 'https://open.spotify.com/embed/album/0TMmGHybMKtsjBBEmwXHkF?utm_source=generator',
                         'youtube' => 'https://www.youtube.com/watch?v=cWRncduPSxo&list=PLwQBUd8MkxXu4Q0NWxhq7cS7NPYMYjgco',
                     ],
                 ],
@@ -80,59 +79,31 @@ class PageController extends Controller
                     'id' => 3,
                     'title' => 'Moonchild',
                     'cover' => 'https://i.pinimg.com/1200x/4c/f8/f0/4cf8f0ae833d2fb2a6fcee697412e952.jpg',
-                    'description' => 'Refleksi diri NIKI terhadap pengalaman cinta pertamanya dan masa-masa remaja di sekolah menengah, khususnya di Jakarta',
+                    'description' => 'Menggambarkan perjalanan spiritual dan emosional seseorang dalam mengenal dirinya sendiri. Terinspirasi dari fase-fase bulan, album ini melambangkan proses pertumbuhan — dari kegelapan, kekacauan, hingga akhirnya menemukan cahaya dan ketenangan dalam diri.',
                     'tracks' => [
-                        ['title' => 'Before', 'meaning' => 'Menggambarkan perpisahan yang datang terlalu cepat dan kerinduan pada masa sebelum semuanya berubah.'],
-                        ['title' => 'High School in Jakarta', 'meaning' => 'Mengisahkan nostalgia dan romansa masa remaja di Jakarta, dengan segala kepolosan dan kekacauannya.'],
-                        ['title' => 'Backburner', 'meaning' => 'Menceritakan hubungan yang tak pernah benar-benar berakhir'],
-                        ['title' => 'Keeping Tabs', 'meaning' => 'Rasa ingin tahu yang tersisa setelah hubungan berakhir.'],
-                        ['title' => 'The Apartment We Wont Share ', 'meaning' => 'Sebuah kisah tentang rencana dan impian bersama yang tak pernah terwujud.'],
-                        ['title' => 'Facebook Friends', 'meaning' => 'Menceritakan hubungan yang telah berakhir tapi masih terikat di dunia maya.'],
-                        ['title' => 'Anaheim', 'meaning' => 'Tentang kenangan yang indah namun hanya bisa disimpan dalam ingatan.'],
-                        ['title' => 'Milk Teeth', 'meaning' => 'Melambangkan hilangnya kepolosan dan tumbuhnya kedewasaan.'],
-                        ['title' => 'Autumn', 'meaning' => 'Menggambarkan keindahan dalam melepaskan sesuatu yang telah berlalu.'],
-                        ['title' => 'Ocean & Engines', 'meaning' => 'Tentang cinta yang harus dilepaskan meski masih terasa begitu dalam.'],
-                        ['title' => 'On The Drive Home', 'meaning' => 'Momen reflektif saat mencoba menerima perpisahan dengan tenang.'],
-                        ['title' => 'Take A Chance With Me', 'meaning' => 'Tentang keberanian untuk mencintai lagi setelah terluka.'],
+                        ['title' => 'Wide Open (Foreword)', 'meaning' => 'Pembuka yang menggambarkan perjalanan menuju penemuan diri dan kebebasan.'],
+                        ['title' => 'Switchblade', 'meaning' => 'Tentang keberanian meninggalkan zona nyaman dan memulai hidup baru.'],
+                        ['title' => 'Nightcrawlers', 'meaning' => 'Mengisahkan kesepian dan pencarian makna di tengah kegelapan.'],
+                        ['title' => 'Selene', 'meaning' => 'Metafora tentang kerinduan dan perubahan, dengan bulan sebagai simbolnya.'],
+                        ['title' => 'Tide ', 'meaning' => 'Melambangkan pasang surut emosi dalam proses tumbuh dan menerima diri.'],
+                        ['title' => 'Pandemonium', 'meaning' => 'Menceritakan kekacauan batin saat menghadapi perasaan yang tak terkendali.'],
+                        ['title' => 'Lose', 'meaning' => 'Tentang kehilangan cinta dan rasa rapuh setelah perpisahan.'],
+                        ['title' => 'Plot Twist', 'meaning' => 'Menggambarkan kejutan dan pembelajaran dalam kisah cinta yang tak terduga.'],
+                        ['title' => 'If There’s Nothing Left...', 'meaning' => 'Menyiratkan keikhlasan untuk melepaskan dan menemukan kedamaian.'],
+                        ['title' => 'Drive On', 'meaning' => 'Penutup yang penuh harapan, tentang melanjutkan hidup dan terus bergerak maju.']
                     ],
                     'links' => [
                         'merch' => 'https://shop.example.com/dawn-echoes-vinyl',
-                        'spotify' => 'https://open.spotify.com/album/0TMmGHybMKtsjBBEmwXHkF?si=j_6WY89TR6ieuXWnKeM3fg',
+                        'spotify' => 'https://open.spotify.com/embed/album/312cHRlzeS4VuD1RHzAGIt?utm_source=generator',
                         'youtube' => 'https://www.youtube.com/watch?v=cWRncduPSxo&list=PLwQBUd8MkxXu4Q0NWxhq7cS7NPYMYjgco',
                     ],
                 ],
-                4 => [
-                    'id' => 4,
-                    'title' => 'Nicole',
-                    'cover' => 'https://i.pinimg.com/1200x/f0/dd/3f/f0dd3f02cc12b0aef4df014190cae09d.jpg',
-                    'description' => 'Refleksi diri NIKI terhadap pengalaman cinta pertamanya dan masa-masa remaja di sekolah menengah, khususnya di Jakarta',
-                    'tracks' => [
-                        ['title' => 'Before', 'meaning' => 'Menggambarkan perpisahan yang datang terlalu cepat dan kerinduan pada masa sebelum semuanya berubah.'],
-                        ['title' => 'High School in Jakarta', 'meaning' => 'Mengisahkan nostalgia dan romansa masa remaja di Jakarta, dengan segala kepolosan dan kekacauannya.'],
-                        ['title' => 'Backburner', 'meaning' => 'Menceritakan hubungan yang tak pernah benar-benar berakhir'],
-                        ['title' => 'Keeping Tabs', 'meaning' => 'Rasa ingin tahu yang tersisa setelah hubungan berakhir.'],
-                        ['title' => 'The Apartment We Wont Share ', 'meaning' => 'Sebuah kisah tentang rencana dan impian bersama yang tak pernah terwujud.'],
-                        ['title' => 'Facebook Friends', 'meaning' => 'Menceritakan hubungan yang telah berakhir tapi masih terikat di dunia maya.'],
-                        ['title' => 'Anaheim', 'meaning' => 'Tentang kenangan yang indah namun hanya bisa disimpan dalam ingatan.'],
-                        ['title' => 'Milk Teeth', 'meaning' => 'Melambangkan hilangnya kepolosan dan tumbuhnya kedewasaan.'],
-                        ['title' => 'Autumn', 'meaning' => 'Menggambarkan keindahan dalam melepaskan sesuatu yang telah berlalu.'],
-                        ['title' => 'Ocean & Engines', 'meaning' => 'Tentang cinta yang harus dilepaskan meski masih terasa begitu dalam.'],
-                        ['title' => 'On The Drive Home', 'meaning' => 'Momen reflektif saat mencoba menerima perpisahan dengan tenang.'],
-                        ['title' => 'Take A Chance With Me', 'meaning' => 'Tentang keberanian untuk mencintai lagi setelah terluka.'],
-                    ],
-                    'links' => [
-                        'merch' => 'https://shop.example.com/dawn-echoes-vinyl',
-                        'spotify' => 'https://open.spotify.com/album/0TMmGHybMKtsjBBEmwXHkF?si=j_6WY89TR6ieuXWnKeM3fg',
-                        'youtube' => 'https://www.youtube.com/watch?v=cWRncduPSxo&list=PLwQBUd8MkxXu4Q0NWxhq7cS7NPYMYjgco',
-                    ],
-                    ],
                 ]
             ];
     }
 
     public function login(Request $request)
     {
-        // jika sudah login (session) redirect ke dashboard
         if ($request->session()->has('username')) {
             return redirect()->route('dashboard', ['username' => $request->session()->get('username')]);
         }
@@ -148,10 +119,8 @@ class PageController extends Controller
 
         $username = $request->input('username');
 
-        // disini tidak ada autentikasi nyata — cukup simpan ke session & redirect
         $request->session()->put('username', $username);
 
-        // redirect ke dashboard membawa query param username
         return redirect()->route('dashboard', ['username' => $username]);
     }
 
@@ -163,7 +132,7 @@ class PageController extends Controller
         return view('dashboard', compact('username','artist'));
     }
 
-    public function album(Request $request, $id)
+        public function album(Request $request, $id)
     {
         $username = $request->query('username') ?? $request->session()->get('username');
         $artist = $this->artistData();
@@ -183,7 +152,6 @@ class PageController extends Controller
         $username = $request->query('username') ?? $request->session()->get('username');
         $artist = $this->artistData();
 
-        // daftar semua possible items (album + tracks) untuk dipilih
         $items = [];
         foreach ($artist['albums'] as $a) {
             $items[] = ['type'=>'album','id'=>$a['id'],'label'=>'Album: '.$a['title']];
@@ -192,15 +160,12 @@ class PageController extends Controller
             }
         }
 
-        // handle POST favorite submission
         if ($request->isMethod('post')) {
-            $favorites = $request->input('favorites', []); // array of labels/ids
-            // simpan ke session
+            $favorites = $request->input('favorites', []);
             $request->session()->put('favorites', $favorites);
             return redirect()->route('pengelolaan', ['username' => $username]);
         }
 
-        // ambil favorites dari session (jika ada)
         $favorites = $request->session()->get('favorites', []);
 
         return view('pengelolaan', compact('username','items','favorites'));

@@ -3,35 +3,57 @@
 @section('title', $album['title'] . ' - Album')
 
 @section('content')
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="{{ $album['cover'] }}" class="cover-thumb" alt="cover">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $album['title'] }}</h5>
-                    <p class="card-text">{{ $album['description'] }}</p>
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">         
+<div class="row gy-4">
+    <!-- KIRI: Cover + Deskripsi + Spotify -->
+    <div class="col-md-5">
+        <div class="card shadow-sm border-0">
+            <img src="{{ $album['cover'] ?? 'https://via.placeholder.com/400x400?text=No+Cover' }}"
+                 class="cover-thumb rounded-top" alt="Album Cover">
 
-                    <p class="mb-1"><strong>Links:</strong></p>
-                    <p class="small mb-1"><a href="{{ $album['links']['merch'] }}" target="_blank">Merch</a>
-                    </p>
-                    <p class="small mb-1"><a href="{{ $album['links']['spotify'] }}" target="_blank">Spotify</a></p>
-                    <p class="small mb-0"><a href="{{ $album['links']['youtube'] }}" target="_blank">YouTube</a></p>
-                </div>
+            <div class="card-body">
+                <h4 class="card-title fw-bold mb-2">{{ $album['title'] }}</h4>
+                <p class="card-text text-muted mb-0">
+                    {{ $album['description'] ?? 'Belum ada deskripsi untuk album ini.' }}
+                </p>
             </div>
         </div>
 
-        <div class="col-md-8">
-            <h4>Daftar Lagu</h4>
-            <div class="list-group">
+        {{-- EMBED SPOTIFY --}}
+        @if (!empty($album['links']['spotify']))
+        <div class="mt-4">
+            <iframe style="border-radius: 12px;"
+                src="{{ $album['links']['spotify'] }}"
+                width="100%" height="352" frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+        </div>
+        @endif
+    </div>
+
+    <!-- KANAN: Daftar Lagu -->
+    <div class="col-md-7">
+        <h4 class="fw-semibold mb-3">Daftar Lagu</h4>
+
+        @if (!empty($album['tracks']))
+            <div class="list-group shadow-sm">
                 @foreach ($album['tracks'] as $idx => $t)
-                    <div class="list-group-item">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">{{ $idx + 1 }}. {{ $t['title'] }}</h5>
+                    <div class="list-group-item list-group-item-action py-3">
+                        <div class="d-flex w-100 justify-content-between align-items-center">
+                            <h5 class="mb-1 fw-bold text-primary">
+                                {{ $idx + 1 }}. {{ $t['title'] }}
+                            </h5>
                         </div>
-                        <p class="mb-1"> {{ $t['meaning'] }}</p>
+                        <p class="mb-1 text-muted">
+                            {{ $t['meaning'] ?? 'Tidak ada penjelasan untuk lagu ini.' }}
+                        </p>
                     </div>
                 @endforeach
             </div>
-        </div>
+        @else
+            <p class="text-muted fst-italic">Belum ada data lagu di album ini.</p>
+        @endif
     </div>
+</div>
 @endsection
