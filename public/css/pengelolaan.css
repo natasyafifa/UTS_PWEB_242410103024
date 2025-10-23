@@ -1,0 +1,134 @@
+body {
+    background: linear-gradient(180deg, #0e1a2b 0%, #1f2c3d 100%);
+    color: #f5f5f5;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+main.container {
+    min-height: 75vh !important;
+}
+
+
+.position-relative {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 120px;
+}
+
+/* Glassmorphism Card */
+.glass-card,
+.card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover,
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+select,
+button {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    border-color: #5ea3ff !important;
+    box-shadow: 0 0 8px rgba(94, 163, 255, 0.4) !important;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(94, 163, 255, 0.4);
+}
+
+/* Background Animation */
+.bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.15;
+    z-index: 0 !important;
+    pointer-events: none;
+}
+
+.orb-blue {
+    background: #4e9eff;
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+    animation: float 8s ease-in-out infinite;
+}
+
+.orb-purple {
+    background: #9b5de5;
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -150px;
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+/* AOS Animation Smoother */
+[data-aos] {
+    transition-timing-function: ease-in-out;
+}
+
+/* Hover Favorite List */
+.favorite-item {
+    transition: all 0.3s ease;
+}
+.favorite-item:hover {
+    background-color: rgba(94, 163, 255, 0.15);
+    transform: translateX(5px);
+}
+
+/* Ripple Click Effect */
+button,
+a {
+    position: relative;
+    overflow: hidden;
+}
+button::after,
+a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.6s ease;
+    opacity: 0;
+}
+button:active::after,
+a:active::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
+footer {
+    z-index: 10;
+    position: relative;
+}

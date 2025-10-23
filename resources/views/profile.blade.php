@@ -83,11 +83,11 @@
   <div class="row">
     <div class="col-md-8 mb-4">
       <h4 class="fw-semibold mb-3">Profile Penggemar</h4>
-      <p class="text-muted">Halo, <strong>{{ $username ?? 'Pengunjung' }}</strong> — ini halaman profil sederhana.</p>
+      <p class="text-muted">Halo, <strong>{{ $username ?? 'Pengunjung' }}</strong> — semoga makin kenal dengan NIKI!</p>
 
       <div class="card mb-3" data-aos="fade-right">
         <div class="card-body">
-          <h5 class="fw-bold text-light mb-2">Profil Artis: {{ $artist['name'] }}</h5>
+          <h5 class="fw-bold text-light mb-2">{{ $artist['name'] }}</h5>
           <p class="text-muted">{{ $artist['bio'] }}</p>
           <p class="fw-semibold text-light">Discography Singkat:</p>
           <ul class="list-unstyled ps-3">

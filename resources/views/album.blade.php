@@ -1,14 +1,35 @@
 @extends('layouts.app')
 
-@section('title', $album['title'] . ' - Album')
+@section('body_class', 'album-' . ($album['id'] ?? 1))
 
 @section('content')
+
 <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 <style>
   body {
     background-color: #0e1a24;
     color: #e0e0e0;
     font-family: 'Poppins', sans-serif;
+  }
+
+  /* === THEME PER ALBUM === */
+  .album-1 {
+    background: linear-gradient(135deg, #ffe5ec, #ff5c8d);
+  }
+
+  .album-2 {
+    background: linear-gradient(135deg, #e0f7fa, #00bcd4);
+  }
+
+  .album-3 {
+    background: linear-gradient(135deg, #f3e5f5, #ab47bc);
+  }
+
+  /* Pastikan text tetap terlihat */
+  body.album-1,
+  body.album-2,
+  body.album-3 {
+    color: #e0e0e0;
   }
 
   .card {
@@ -20,7 +41,7 @@
 
   .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   }
 
   .card-title {
@@ -61,7 +82,7 @@
 
   iframe {
     filter: grayscale(20%) brightness(0.95);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     transition: all 0.5s ease;
   }
 
@@ -101,14 +122,14 @@
 
     {{-- EMBED SPOTIFY (ALBUM) --}}
     @if (!empty($album['links']['spotify']))
-      <div class="mt-4" data-aos>
-        <iframe style="border-radius: 12px;"
-          src="{{ $album['links']['spotify'] }}"
-          width="100%" height="352" frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-      </div>
+    <div class="mt-4" data-aos>
+      <iframe style="border-radius: 12px;"
+        src="{{ $album['links']['spotify'] }}"
+        width="100%" height="352" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
     @endif
   </div>
 
@@ -117,34 +138,34 @@
     <h4 class="fw-semibold mb-3 text-light">Daftar Lagu</h4>
 
     @if (!empty($album['tracks']))
-      <div class="list-group shadow-sm" id="trackList">
-        @foreach ($album['tracks'] as $idx => $t)
-          <div class="list-group-item list-group-item-action py-3"
-               data-spotify="{{ $t['spotify_embed'] ?? '' }}">
-            <div class="d-flex w-100 justify-content-between align-items-center">
-              <h5 class="mb-1 fw-bold text-primary">
-                {{ $idx + 1 }}. {{ $t['title'] }}
-              </h5>
-            </div>
-            <p class="mb-1 text-muted">
-              {{ $t['meaning'] ?? 'Tidak ada penjelasan untuk lagu ini.' }}
-            </p>
-          </div>
-        @endforeach
+    <div class="list-group shadow-sm" id="trackList">
+      @foreach ($album['tracks'] as $idx => $t)
+      <div class="list-group-item list-group-item-action py-3"
+        data-spotify="{{ $t['spotify_embed'] ?? '' }}">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <h5 class="mb-1 fw-bold text-primary">
+            {{ $idx + 1 }}. {{ $t['title'] }}
+          </h5>
+        </div>
+        <p class="mb-1 text-muted">
+          {{ $t['meaning'] ?? 'Tidak ada penjelasan untuk lagu ini.' }}
+        </p>
       </div>
+      @endforeach
+    </div>
 
-      <!-- Kontainer iframe preview Spotify -->
-      <div id="spotifyPreview" class="mt-4" style="display: none;">
-        <iframe id="spotifyPlayer"
-          style="border-radius: 12px;"
-          src=""
-          width="100%" height="152" frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-      </div>
+    <!-- Kontainer iframe preview Spotify -->
+    <div id="spotifyPreview" class="mt-4" style="display: none;">
+      <iframe id="spotifyPlayer"
+        style="border-radius: 12px;"
+        src=""
+        width="100%" height="152" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
     @else
-      <p class="text-muted fst-italic">Belum ada data lagu di album ini.</p>
+    <p class="text-muted fst-italic">Belum ada data lagu di album ini.</p>
     @endif
   </div>
 </div>
