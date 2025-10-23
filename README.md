@@ -1,4 +1,4 @@
-🎤 Artist Profile Catalog — Laravel Mini Project
+🎤 ZefArchive - Mini Katalog
 
 Project ini adalah mini-proyek UTS untuk mata kuliah Pemrograman Web (Laravel).
 Website ini menampilkan katalog artis yang dapat diakses oleh penggemar dengan fitur utama login, dashboard berisi profil dan diskografi, serta pengelolaan daftar favorit.
